@@ -22,7 +22,7 @@ CONFIGURATION
     {
         "action": "2"
     }
-
+(le json a deposer sur github est fourni dans cette repo)
 (remplace le 2 par l'action que tu souhaite faire)
 
 3.copie colle l'url de ton fichier json dans l'invite de commande (par exemple : https://github.com/TONNOM/TAREPO/main/config.json)
