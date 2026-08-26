@@ -15,19 +15,17 @@ Le fichier JSON, lui, est hébergé sur GitHub.
 CONFIGURATION
 -------------
 
-1. Ouvre main.py.
+1. Dans l'invite de commande, rend toi dans le dossier du script et appelle le script avec comme argument config (python main.py config).
 
-2. Au début du fichier, modifie :
-
-    GITHUB_JSON_URL = "https://raw.githubusercontent.com/TON_COMPTE/TON_REPO/main/config.json"
-
-   avec l'URL RAW de ton fichier config.json.
-
-3. Sur GitHub, crée par exemple :
+2. Sur GitHub, crée un fichier json avec cette mise en page :
 
     {
         "action": "2"
     }
+
+(remplace le 2 par l'action que tu souhaite faire)
+
+3.copie colle l'url de ton fichier json dans l'invite de commande (par exemple : https://github.com/TONNOM/TAREPO/main/config.json)
 
 4. Lance :
 
