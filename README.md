@@ -16,7 +16,7 @@ CONFIGURATION
 -------------
 
 1. Dans l'invite de commande, rend toi dans le dossier du script et appelle le script avec comme argument config
-2. (.python main.py config).
+ .python main.py config
 
 3. Sur GitHub, crée un fichier json avec cette mise en page :
 
