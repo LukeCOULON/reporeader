@@ -19,9 +19,12 @@ CONFIGURATION
 
 2. Sur GitHub, crée un fichier json avec cette mise en page :
 
+   
     {
         "action": "2"
     }
+   
+   
 (le json a deposer sur github est fourni dans cette repo)
 (remplace le 2 par l'action que tu souhaite faire)
 
