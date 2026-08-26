@@ -1,51 +1,123 @@
-GITHUB JSON LAUNCHER
-====================
+# GitHub JSON Launcher
 
-Structure du projet :
+Un petit lanceur Python permettant d'exécuter **localement** différents scripts en fonction d'une configuration stockée sur **GitHub**.
 
-    main.py
-    .scripts/
-        1.py
-        2.py
-        3.py
+## Structure du projet
 
-Le dossier .scripts contient les scripts exécutés localement.
-Le fichier JSON, lui, est hébergé sur GitHub.
+```text
+main.py
+.scripts/
+├── 1.py
+├── 2.py
+└── 3.py
+```
 
-CONFIGURATION
--------------
+* Le dossier `.scripts/` contient les scripts exécutés localement.
+* Le fichier `config.json` est hébergé sur GitHub.
+* `main.py` récupère la configuration depuis GitHub et lance le script correspondant.
 
-1. Dans l'invite de commande, rend toi dans le dossier du script et appelle le script avec comme argument config
- .python main.py config
+## Configuration
 
-3. Sur GitHub, crée un fichier json avec cette mise en page :
+### 1. Configurer le lanceur
 
-   
-    {
-        "action": "2"
-    }
-   
-   
-(le json a deposer sur github est fourni dans cette repo)
-(remplace le 2 par l'action que tu souhaite faire)
+Ouvre une invite de commande dans le dossier du projet, puis exécute :
 
-3.copie colle l'url de ton fichier json dans l'invite de commande (par exemple : https://github.com/TONNOM/TAREPO/main/config.json)
+```bash
+python main.py config
+```
 
-4. Lance :
+Le programme te demandera ensuite l'URL du fichier JSON hébergé sur GitHub.
 
-    python main.py
+### 2. Créer le fichier JSON sur GitHub
 
-Avec "action": "2", le programme lancera :
+Crée un fichier `config.json` avec la structure suivante :
 
-    .scripts/2.py
+```json
+{
+    "action": "2"
+}
+```
 
-IMPORTANT
----------
+> Le fichier JSON prêt à être utilisé est également fourni dans ce dépôt.
 
-Les fichiers 1.py, 2.py, 3.py, ... restent entièrement en local.
-Seul config.json est téléchargé depuis GitHub.
+La valeur de `action` correspond au script à exécuter.
 
-Pour ajouter un nouveau script, par exemple x.py :
+Par exemple :
 
-1. Ajoute .scripts/x.py
-2. Ajoute "x": "x.py" dans le dictionnaire SCRIPTS de main.py.
+* `"action": "1"` → `.scripts/1.py`
+* `"action": "2"` → `.scripts/2.py`
+* `"action": "3"` → `.scripts/3.py`
+
+### 3. Indiquer l'URL du fichier JSON
+
+Copie-colle l'URL de ton fichier `config.json` lorsque le programme te le demande.
+
+Exemple :
+
+```text
+https://github.com/TONNOM/TAREPO/main/config.json
+```
+
+### 4. Lancer le programme
+
+Une fois la configuration enregistrée, exécute simplement :
+
+```bash
+python main.py
+```
+
+Si le fichier JSON contient :
+
+```json
+{
+    "action": "2"
+}
+```
+
+le programme exécutera automatiquement :
+
+```text
+.scripts/2.py
+```
+
+## Ajouter un nouveau script
+
+Pour ajouter un nouveau script, par exemple `x.py` :
+
+1. Ajoute le fichier dans `.scripts/` :
+
+```text
+.scripts/x.py
+```
+
+2. Ajoute la correspondance dans le dictionnaire `SCRIPTS` de `main.py` :
+
+```python
+"x": "x.py"
+```
+
+3. Utilise ensuite cette action dans `config.json` :
+
+```json
+{
+    "action": "x"
+}
+```
+
+Le lanceur exécutera alors :
+
+```text
+.scripts/x.py
+```
+
+## Important
+
+Les scripts `1.py`, `2.py`, `3.py`, etc. restent **entièrement en local**.
+
+Le seul fichier récupéré depuis GitHub est :
+
+```text
+config.json
+```
+
+GitHub sert donc uniquement à **déterminer quelle action doit être exécutée**. Les scripts eux-mêmes ne sont jamais téléchargés depuis GitHub.
